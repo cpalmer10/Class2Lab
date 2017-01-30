@@ -20,13 +20,16 @@ import model.WelcomeService;
  */
 @WebServlet(name = "WelcomeController", urlPatterns = {"/WelcomeController"})
 public class WelcomeController extends HttpServlet {
-
-    private final String RESULT_PAGE = "";
+    
+    private final String RESULT_PAGE = "/WelcomeResponse.jsp";
     private final String parameterName = "name";
     private final String attributeGreeting = "greeting";
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) {
+        
             response.setContentType("text/html;charset=UTF-8");
+            
+            String name = request.getParamter("myName");
             
             WelcomeService service = new WelcomeService();
     }

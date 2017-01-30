@@ -8,7 +8,14 @@ public class WelcomeService {
     final int timeUntilAfternoon = 12;
     final int timeUntilEvening = 19;
     
-    Calendar cal = Calendar.getInstance();
+   Calendar now = Calendar.getInstance();
+        now.SetTime(this.getDateNow());
+    Calendar morning = Calendar.getInstance();
+        morning.set(Calendar.HOUR_OF_DAY, 0);
+    Calendar afternoon = Calendar.getInstance();
+        afternoon.set(Calendar.HOUR_OF_DAY, 12);
+    Calendar evening = Calendar.getInstance();
+        evening.set(Calendar.HOUR_OF_DAY, 17);
     
     String partOfDay;
     String greeting;
@@ -41,6 +48,9 @@ public class WelcomeService {
          
          return greeting;
 }
+    
+    
+    
     
     
 }
