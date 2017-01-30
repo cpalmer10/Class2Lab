@@ -12,6 +12,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h2>Welcome Response</h2>
+        <h1><%out.print(request.getAttribute("greeting"));%></h1>
     </body>
 </html>

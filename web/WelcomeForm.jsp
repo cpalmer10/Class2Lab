@@ -14,7 +14,11 @@
     <body>
         <h1>Greeting</h1>
         <h2>Please enter your name:</h2>
-        Name:<input type="text" name="myName" value=""/><br>
+        
+        <form id=”form1” name=”form1” method=”POST” action=”greeter”>
+        Name: <input type="text" name="myName" value=""/><br>
             <input type="submit" name="submit" value="Submit"/>
+            
+        </form>
     </body>
 </html>

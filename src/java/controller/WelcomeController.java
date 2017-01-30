@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashSet;
 import java.util.Set;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,14 +21,14 @@ import model.WelcomeService;
  *
  * @author Chris
  */
-@WebServlet(name = "WelcomeController", urlPatterns = {"/WelcomeController"})
+@WebServlet(name = "greeter", urlPatterns = {"/greeter"})
 public class WelcomeController extends HttpServlet {
     
-    private final String RESULT_PAGE = "/WelcomeResponse.jsp";
+    private final String RESULT_PAGE = "WelcomeResponse.jsp";
     private final String parameterName = "name";
     private final String attributeGreeting = "greeting";
     
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response) {
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         
             response.setContentType("text/html;charset=UTF-8");                    
             
@@ -37,7 +38,8 @@ public class WelcomeController extends HttpServlet {
             
             request.setAttribute(attributeGreeting, greeting);
             
-            
+            RequestDispatcher view = request.getRequestDispatcher(RESULT_PAGE);            
+                view.forward(request, response);
         
     }
 
