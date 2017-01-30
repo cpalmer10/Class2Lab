@@ -7,44 +7,41 @@ import java.util.Calendar;
 public class WelcomeService {
     final int timeUntilAfternoon = 12;
     final int timeUntilEvening = 19;
-    
-   Calendar now = Calendar.getInstance();
-        now.SetTime(this.getDateNow());
-    Calendar morning = Calendar.getInstance();
-        morning.set(Calendar.HOUR_OF_DAY, 0);
-    Calendar afternoon = Calendar.getInstance();
-        afternoon.set(Calendar.HOUR_OF_DAY, 12);
-    Calendar evening = Calendar.getInstance();
-        evening.set(Calendar.HOUR_OF_DAY, 17);
-    
+            
     String partOfDay;
-    String greeting;
+    String greeting;        
     
-    int hour = cal.get(Calendar.HOUR_OF_DAY);
-    
-    
-    public void DetermineTimeOfDay(){
-        //Morning
-        if(hour < 12) {
+    public String determinePartOfDay(Calendar cal){
+        
+        Calendar now = Calendar.getInstance();            
+        
+        Calendar morning = Calendar.getInstance();
+            morning.set(Calendar.HOUR_OF_DAY, 0);      
+        Calendar afternoon = Calendar.getInstance();
+            afternoon.set(Calendar.HOUR_OF_DAY, timeUntilAfternoon);        
+        Calendar evening = Calendar.getInstance();
+            evening.set(Calendar.HOUR_OF_DAY, timeUntilEvening);
+                        
+        if(now.getTime().before(morning.getTime())) {
             partOfDay = "morning";
         }
-        else if (hour > 12 && hour < 17){
+        else if (now.getTime().before(afternoon.getTime())){
             partOfDay = "afternoon";
         }
         else {
             partOfDay = "evening";
         }
             
-        //Afternoon
-        
-        //Evening
-    }
+       return partOfDay;
     
-    public String greeting(String name){
+}
+
+    
+    public String greetingBasedOnTime(String name){
         if(name == null || name.isEmpty()) {
             throw new IllegalArgumentException("name is mandatory");
         }
-         greeting = "Good" + partOfDay + ", " + name + ". Welcome!";
+         greeting = "Good" + determinePartOfDay(Calendar.getInstance()) + ", " + name + ". Welcome!";
          
          return greeting;
 }

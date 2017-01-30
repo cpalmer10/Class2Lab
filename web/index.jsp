@@ -12,6 +12,19 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Table</h1>
+        
+        <table>
+            <%
+            for (int row = 0; row < 3; row++){
+                out.println("<tr>");
+                for(int col = 0; col < 3; col++){
+                    out.println("<td>row" + row + "col" + col + "</td>");
+                }
+            }    
+                
+            %>
+        </table>
+        
     </body>
 </html>

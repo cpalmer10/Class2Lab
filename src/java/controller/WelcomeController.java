@@ -7,6 +7,8 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashSet;
+import java.util.Set;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -27,11 +29,16 @@ public class WelcomeController extends HttpServlet {
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) {
         
-            response.setContentType("text/html;charset=UTF-8");
-            
-            String name = request.getParamter("myName");
+            response.setContentType("text/html;charset=UTF-8");                    
             
             WelcomeService service = new WelcomeService();
+            
+            String greeting = service.greetingBasedOnTime(request.getParameter("myName"));
+            
+            request.setAttribute(attributeGreeting, greeting);
+            
+            
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
