@@ -15,6 +15,6 @@
         <h1>Greeting</h1>
         <h2>Please enter your name:</h2>
         Name:<input type="text" name="myName" value=""/><br>
-            <input type="submit" name="submit" value="submit"/>
+            <input type="submit" name="submit" value="Submit"/>
     </body>
 </html>

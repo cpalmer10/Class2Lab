@@ -33,8 +33,13 @@ public class WelcomeService {
         //Evening
     }
     
-    public void greeting(){
-        greeting = "Good" + partOfDay + ", " + name + ". Welcome!";
+    public String greeting(String name){
+        if(name == null || name.isEmpty()) {
+            throw new IllegalArgumentException("name is mandatory");
+        }
+         greeting = "Good" + partOfDay + ", " + name + ". Welcome!";
+         
+         return greeting;
 }
     
     
