@@ -21,8 +21,7 @@
                 for(int col = 0; col < 3; col++){
                     out.println("<td>row" + row + "col" + col + "</td>");
                 }
-            }    
-                
+            }                    
             %>
         </table>
         
