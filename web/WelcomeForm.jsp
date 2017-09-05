@@ -15,7 +15,7 @@
         <h1>Greeting</h1>
         <h2>Please enter your name:</h2>
         
-        <form id=”form1” name=”form1” method=”POST” action=”greeter”>
+        <form id="form1" name="form1" method="POST" action="WelcomeController">
         Name: <input type="text" name="myName" value=""/><br>
             <input type="submit" name="submit" value="Submit"/>
             

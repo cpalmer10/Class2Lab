@@ -21,9 +21,10 @@ import model.WelcomeService;
  *
  * @author Chris
  */
-@WebServlet(name = "greeter", urlPatterns = {"/greeter"})
+@WebServlet(name = "WelcomeController", urlPatterns = {"/WelcomeController"})
 public class WelcomeController extends HttpServlet {
     
+    private final String START_PAGE = "WelcomeForm.jsp";
     private final String RESULT_PAGE = "WelcomeResponse.jsp";
     private final String parameterName = "name";
     private final String attributeGreeting = "greeting";
